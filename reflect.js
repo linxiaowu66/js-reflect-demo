@@ -3,7 +3,7 @@ require('reflect-metadata')
 @Reflect.metadata('attr', {canRun: true})
 export default class Animal {
   @Reflect.metadata('parameters', [
-    {"name":"string","isArray":false}
+    {"name":"string","isArray":false,"isPrimitive":true}
   ])
   static isFourFeet(animalName){
     if (animalName === 'cat') {
