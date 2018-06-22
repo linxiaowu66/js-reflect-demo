@@ -4,7 +4,7 @@
   "description": "JS反射学习demo",
   "main": "index.js",
   "scripts": {
-    "build": "babel index.js reflect.js -d dist",
+    "build": "babel index.js dog.js animal.js -d dist",
     "start": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
