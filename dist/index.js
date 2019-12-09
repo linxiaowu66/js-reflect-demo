@@ -44,7 +44,7 @@ function test() {
   console.log('we can not find attr metakey in the Dog as we using getOwnMetadata, value:', attr1);
 
   // 如果我们想在Animal上获取Dog的metakey
-  const attr2 = Reflect.getMetadata('attr', _animal2.default);
+  const attr2 = Reflect.getMetadata('dogattr', _animal2.default);
   console.log(attr2);
 
   // 接下来演示如何在父类中拿到子类的metaKey
