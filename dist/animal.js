@@ -4,11 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _dec, _dec2, _class, _desc, _value, _class2;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
   var desc = {};
@@ -41,23 +37,14 @@ function _applyDecoratedDescriptor(target, property, decorators, descriptor, con
 
 require('reflect-metadata');
 
-var Animal = (_dec = Reflect.metadata('attr', { canRun: false }), _dec2 = Reflect.metadata('parameters', [{ "name": "string", "isArray": true, "isPrimitive": true }]), _dec(_class = (_class2 = function () {
-  function Animal() {
-    _classCallCheck(this, Animal);
-  }
-
-  _createClass(Animal, null, [{
-    key: 'isFourFeet',
-    value: function isFourFeet(animalName) {
-      if (animalName === 'cat') {
-        return true;
-      }
-      if (animalName === 'fish') {
-        return false;
-      }
+let Animal = (_dec = Reflect.metadata('attr', { canRun: false }), _dec2 = Reflect.metadata('parameters', [{ "name": "string", "isArray": true, "isPrimitive": true }]), _dec(_class = (_class2 = class Animal {
+  static isFourFeet(animalName) {
+    if (animalName === 'cat') {
+      return true;
     }
-  }]);
-
-  return Animal;
-}(), (_applyDecoratedDescriptor(_class2, 'isFourFeet', [_dec2], Object.getOwnPropertyDescriptor(_class2, 'isFourFeet'), _class2)), _class2)) || _class);
+    if (animalName === 'fish') {
+      return false;
+    }
+  }
+}, (_applyDecoratedDescriptor(_class2, 'isFourFeet', [_dec2], Object.getOwnPropertyDescriptor(_class2, 'isFourFeet'), _class2)), _class2)) || _class);
 exports.default = Animal;
