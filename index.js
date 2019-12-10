@@ -45,6 +45,56 @@ function test() {
   // 搞懂这个父类拿到子类的metaKey的话需要你知道class继承的实现原理，继承的本质是会在B的构造函数中执行A函数，并将B的this传给A，所以此时A的
   // 构造函数的this此时是函数B，因此this.contructor其实就是B这个构造函数，而B这个构造函数因为使用修饰器，所以是在B构造函数注入了childClass
   // 这个元数据，如果使用target.prototype的话，那么是在构造函数的原型对象上添加，这样的话getOwnMetadata就取不到对应的值了
+
+  /*
+  class A {
+    constructor() {
+      console.log(this.constructor)
+    }
+    method() {
+    }
+  }
+
+  class B extends A {
+
+    methodB() {}
+  }
+  */
+
+  /*
+    "use strict";
+
+    function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
+
+    var A =
+    function () {
+      function A() {
+        console.log(this.constructor);
+      }
+
+      var _proto = A.prototype;
+
+      _proto.method = function method() {};
+
+      return A;
+    }();
+
+    var B =
+    function (_A) {
+      _inheritsLoose(B, _A);
+
+      function B() {
+        return _A.apply(this, arguments) || this;
+      }
+
+      var _proto2 = B.prototype;
+
+      _proto2.methodB = function methodB() {};
+
+      return B;
+    }(A);
+
+  */
 }
 
 test()
