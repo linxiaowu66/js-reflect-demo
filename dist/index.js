@@ -50,9 +50,9 @@ function test() {
   // 接下来演示如何在父类中拿到子类的metaKey
   new B();
 
-  // 从上面的示例，知道为什么了吗？
-  // 问题1：为什么defineMetadata的时候需要使用的是target.prototype
-  // 问题2：为什么取metadata的时候使用的是getMetadata而不是getOwnMetadata？这两个问题有关联关系的
+  // 搞懂这个父类拿到子类的metaKey的话需要你知道class继承的实现原理，继承的本质是会在B的构造函数中执行A函数，并将B的this传给A，所以此时A的
+  // 构造函数的this此时是函数B，因此this.contructor其实就是B这个构造函数，而B这个构造函数因为使用修饰器，所以是在B构造函数注入了childClass
+  // 这个元数据，如果使用target.prototype的话，那么是在构造函数的原型对象上添加，这样的话getOwnMetadata就取不到对应的值了
 }
 
 test();
